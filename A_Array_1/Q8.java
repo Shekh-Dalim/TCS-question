@@ -1,28 +1,26 @@
 /************* Q: Smallest Element in an array TC- O(n)  SC-O(1)*************/
-#include <bits/stdc++.h>
-using namespace std;
 
-int smallestElement(int arr[], int size)
-{
-    int smallest = INT_MAX;
+import java.util.*;
 
-    for (int i = 0; i < size; i++)
-    {
-        if (arr[i] < smallest)
-        {
-            smallest = arr[i];
+class Dalim {
+
+    public static int smallestEle(int arr[]) {
+        int minElement = Integer.MAX_VALUE; 
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] < minElement) {
+                minElement = arr[i];
+            } 
+            
         }
+
+        return minElement;
     }
-    return smallest;
+
+    public static void main(String args[]) {
+
+        int arr[] = {1, 33, 14, 5};
+        int result = smallestEle(arr);
+        System.out.println("Smallest element: " + result);
+    }
 }
-
-    int main()
-    {
-        int n = 5;
-        int arr[5] = {1, 2, 33, -1, 5};
-
-        int result = smallestElement(arr, n);
-        cout << "Largest element is: " << result<<endl;
-
-        return 0;
-    }
