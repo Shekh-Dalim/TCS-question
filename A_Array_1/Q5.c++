@@ -7,33 +7,55 @@ meadian of an unsorted array using c++
 3: if odd then return mid value of the array .
 4: else the meadin is the average of the two middle values .
 */
-#include<bits/stdc++.h>
-using namespace std;
 
-double findMedian(int arr[], int n)
-{
-    // Step 1: Sort the array
-    sort(arr, arr + n);
 
-    // Step 2: return the middle element if the number of elements odd 
-    if (n % 2 != 0) 
-    { 
-        return arr[n / 2];
+
+
+import java.util.*;
+// import java.io.*;
+
+
+class Dalim {
+    static Scanner sc = new Scanner(System.in);
+
+    public static void inputEle(int arr[], int size) {
+        for (int i = 0; i < size; i++) {
+            arr[i] = sc.nextInt();
+        }
     }
-    else  // return the average of the two middle elements If even, 
-    { 
-        return (arr[(n - 1) / 2] + arr[n / 2]) / 2;
+
+    public static void printArr(int arr[], int size) {
+        for (int i = 0; i < size; i++) {
+            System.out.print(arr[i] + " ");
+        }
     }
-}
 
-int main()
-{
-    // int arr[] = {7, 1, 3, 4, 5, 6, 2};    // Example unsorted array
-    int arr[] = {1,4,5,7,2};    // Example unsorted array
-    int n = sizeof(arr) / sizeof(arr[0]); 
+    public static double Meadian(int arr[], int size) {
 
-    double median = findMedian(arr, n);                   // Find the median
-    cout << "Median of the array is: " << median << endl; // Print the result
+        Arrays.sort(arr);
 
-    return 0;
+        if (size == 0) {
+            return 0;
+        } else if (size % 2 == 1) {
+            return arr[size / 2];
+        } else {
+            return (arr[size / 2] + arr[(size / 2) - 1]) / 2.0;
+        }
+
+    }
+
+    public static void main(String args[]) {
+        System.out.print("Enter the size: ");
+        int size = sc.nextInt();
+        int arr[] = new int[size];
+
+        System.out.println("Enter the array element: ");
+        inputEle(arr, size);
+
+        System.out.println("Display the array Element: ");
+        printArr(arr, size);
+
+        double ans = Meadian(arr, size);
+        System.out.println("\nThe mean of the array: "+ans);
+    }
 }
